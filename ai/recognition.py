@@ -39,6 +39,7 @@ def set_pytesseract():
     else:
         pytesseract.pytesseract.tesseract_cmd = "/app/.apt/usr/bin/tesseract"
 
+
 def parse_read_text(text: str, parsingResults: list, loc: Enum):
     for line in text.split("\n"):
         if (len(line)) == 0 or ignore_line(line):
