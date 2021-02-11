@@ -1,4 +1,4 @@
-import cv2
+import cv2.cv2 as cv2
 from typing import Dict, Tuple
 from ai.helpers import cleanup_text
 

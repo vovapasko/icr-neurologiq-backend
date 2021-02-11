@@ -1,6 +1,6 @@
 import numpy as np
 import imutils
-import cv2
+import cv2.cv2 as cv2
 
 
 def align_images(image, template, maxFeatures=2000, keepPercent=0.2, debug=False):
