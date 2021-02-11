@@ -1,7 +1,7 @@
 # python ocr_form.py --image scans/full_antrag-1.png --template template/antrag-1.png
 from .align_image import align_images
 import imutils
-import cv2.cv2 as cv2
+import cv2
 import os
 from .recognition import recognize
 from .file_conventer import file_converter
