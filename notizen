@@ -1,0 +1,11 @@
+1. Server   2
+    - front-end
+    - validation on Server
+    - Asynchrone Ausführung, weil jetzt alles syncron ist
+2. KI Algo      1
+    - Handshrift Anerkennung
+    - Verbesserung aktueller OCR Algorithm
+
+_____________________________
+
+1. добавить в бд поле для компании, от которой шаблон (тип шаблона)

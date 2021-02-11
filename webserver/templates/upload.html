@@ -1,0 +1,32 @@
+{% block content %}
+
+<h3>Templates we have</h3>
+{% for template in templates %}
+<li>{{ template.id }} - {{ template }}</li>
+{% endfor %}
+
+<h2> Upload </h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="template_id">Template ID:</label>
+    <input type="text" id="template_id" name="template_id"><br><br>
+
+    <input type="checkbox" id="printed" name="printed" value="printed">
+    <label for="printed"> Printed </label><br>
+    <input type="checkbox" id="handwritten" name="handwritten" value="handwritten">
+    <label for="handwritten"> Handwritten </label><br>
+
+    <input type="file" name="document">
+    <button type="submit">Upload File</button>
+    <a href="{% url 'webserver:download_file_json_view' %}">Download JSON-File</a>
+    <a href="{% url 'webserver:download_file_csv_view' %}">Download CSV-File</a>
+</form>
+{% if url %}
+<p>Uploaded File: <a href="{{ url }}"> {{ url }} </a></p>
+{% endif %}
+{% for key, value in message.items %}
+<p> {{ key }} : {{ value }}
+    {% endfor %}
+
+    {% endblock %}
