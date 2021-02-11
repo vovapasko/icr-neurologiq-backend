@@ -25,7 +25,7 @@ SECRET_KEY = '*pv2^l@qxhmd#_uau@#w%@%rref8fv$(o01$e+(zz#yk6_$ei0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'icr-neurologiq-backend.herokuapp.com']
 
 # Application definition
 
