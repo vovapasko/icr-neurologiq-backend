@@ -141,11 +141,11 @@ FILE_ROOT = os.path.join(BASE_DIR)
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:5000',
-    'https://icr-neurologiq.herokuapp.com/'
+    'https://icr-neurologiq.herokuapp.com'
 ]
 CORS_ORIGIN_REGEX_WHITELIST = [
     'http://localhost:5000',
-    'https://icr-neurologiq.herokuapp.com/'
+    'https://icr-neurologiq.herokuapp.com'
 ]
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
