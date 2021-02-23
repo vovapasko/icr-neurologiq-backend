@@ -5,7 +5,7 @@ from ..models import UploadedPhoto
 
 
 class UploadFileSerializer(serializers.ModelSerializer):
-    photo = serializers.CharField()
+    # photo = serializers.CharField()
 
     class Meta:
         model = UploadedPhoto
