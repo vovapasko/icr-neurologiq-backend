@@ -36,6 +36,8 @@ def set_pytesseract():
     if platform.system() == 'Windows':
         pytesseract.pytesseract.tesseract_cmd = r"full path to the exe file"
         pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    else:
+        pytesseract.pytesseract.tesseract_cmd = "/app/.apt/usr/bin/tesseract"
 
 
 def parse_read_text(text: str, parsingResults: list, loc: Enum):

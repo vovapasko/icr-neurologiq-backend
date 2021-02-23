@@ -10,7 +10,7 @@ class Command(BaseCommand):
     help = "create locations from list of tuples"
 
     template_id = 1
-    locations = ORC_second_page
+    locations = OCR_LOCATIONS
 
     def handle(self, *args, **options):
         template = FileTemplate.objects.get(id=self.template_id)

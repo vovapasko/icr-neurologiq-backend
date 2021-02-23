@@ -25,7 +25,7 @@ SECRET_KEY = '*pv2^l@qxhmd#_uau@#w%@%rref8fv$(o01$e+(zz#yk6_$ei0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'icr-neurologiq-backend.herokuapp.com']
 
 # Application definition
 
@@ -127,6 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),  # your static/ files folder
@@ -140,14 +141,18 @@ FILE_ROOT = os.path.join(BASE_DIR)
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:5000',
+    'https://icr-neurologiq.herokuapp.com/'
 ]
 CORS_ORIGIN_REGEX_WHITELIST = [
     'http://localhost:5000',
+    'https://icr-neurologiq.herokuapp.com/'
 ]
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_ICR_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = 'eu-central-1'
+AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None

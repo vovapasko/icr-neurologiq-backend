@@ -1,9 +1,4 @@
-import cv2
-from django.core.files.base import ContentFile
-
 from .config import ascii_index_to_check
-import base64
-import six
 
 
 def cleanup_text(text):
