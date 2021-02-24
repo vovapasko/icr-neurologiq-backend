@@ -22,13 +22,13 @@ def run(
     print("[INFO] loading images...")
     # image = file_converter.read_cv2_file_from_filename(par_image_file)
     # template = file_converter.read_cv2_file_from_filename(par_template_file)
-    image = file_converter.get_cv2_file_from_buffer(par_image_file)
+    image = file_converter.get_cv2_file_from_file(par_image_file)
     # next line for local storage
     if os.environ.get('ICR_LOCAL_RUN'):
         template = file_converter.read_cv2_file_from_filename(par_template_file.name)
     # next line for S3 bucket
     else:
-        template = file_converter.get_cv2_file_from_buffer(par_template_file)
+        template = file_converter.get_cv2_file_from_file(par_template_file)
 
     # ------------------ align
     print("[INFO] aligning images...")
