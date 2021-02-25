@@ -1,12 +1,17 @@
 import os
-from typing import Type, Union
+import tempfile
+from io import BytesIO
 import cv2
 import numpy as np
 from django.core.files import File
+from pdf2image import convert_from_bytes
 
 
 class Reader:
+
     def read_image(self, image_file: File):
+        if self.__get_file_format(image_file) == 'pdf':
+            return self.__read_pdf_file(image_file.file)
         return self.__read_cv2_file_from_inmemory_file(image_file)
 
     def read_template(self, template_file: File) -> np.array:
@@ -37,6 +42,14 @@ class Reader:
         nparr_file = np.fromstring(_from, array_dtype_to)
         img_np = cv2.imdecode(nparr_file, cv2_decode_flag)
         return img_np
+
+    def __read_pdf_file(self, pdf_file: BytesIO) -> np.array:
+        with tempfile.TemporaryDirectory() as path:
+            image_file = convert_from_bytes(pdf_file.read(), output_folder=path)[0]
+            return self.__read_cv2_file_from_local_file(image_file.filename)
+
+    def __get_file_format(self, file):
+        return file.name.split('.')[-1]
 
 
 reader = Reader()

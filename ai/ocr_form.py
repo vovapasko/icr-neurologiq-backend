@@ -4,7 +4,6 @@ import imutils
 import cv2
 import os
 from .recognition import recognize
-from .file_conventer import file_converter
 from .data_handler import to_pure_dict
 from .file_saver import file_saver, rules
 from .config import OCR_LOCATIONS, file_formats_to_save_names, ROOT_DIR, ORC_second_page
