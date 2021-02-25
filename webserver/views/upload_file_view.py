@@ -23,8 +23,7 @@ class UploadFileView(BaseView, ListCreateAPIView):
         try:
             serializer = self.post_serializer(data=request.data)
             if serializer.is_valid():
-                uploaded_file = from_base64_to_content_file(request.data.get('photo'), filename='FileToSave.png')
-                # uploaded_file = request.data.get('photo')
+                uploaded_file = from_base64_to_content_file(request.data.get('photo'), filename='file')
                 template_id = request.data.get('template')
                 template_file = FileTemplate.objects.get(id=template_id)
                 photo = UploadedPhoto(photo=uploaded_file, template=template_file)
@@ -32,7 +31,6 @@ class UploadFileView(BaseView, ListCreateAPIView):
                     par_template_file=template_file.file.file,
                     par_image_file=photo.photo.file,
                     par_locations=template_file.get_locations_list(),
-                    file_format_to_save='json'
                 )
                 return self.success_response(data=data, status_code=status.HTTP_201_CREATED)
             else:

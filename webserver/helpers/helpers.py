@@ -11,7 +11,8 @@ def from_base64_to_content_file(base64_str: str, filename: str):
         if 'data:' in data and ';base64,' in data:
             # Break out the header from the base64 content
             header, data = data.split(';base64,')
-
+            file_format = header.split('/')[-1]
+            filename += f".{file_format}"
         # Try to decode the file. Return validation error if it fails.
         try:
             decoded_file = base64.b64decode(data)
