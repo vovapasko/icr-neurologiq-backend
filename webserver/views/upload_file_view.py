@@ -23,8 +23,8 @@ class UploadFileView(BaseView, ListCreateAPIView):
         try:
             serializer = self.post_serializer(data=request.data)
             if serializer.is_valid():
-                # uploaded_file = from_base64_to_content_file(request.data.get('photo'), filename='FileToSave.png')
-                uploaded_file = request.data.get('photo')
+                uploaded_file = from_base64_to_content_file(request.data.get('photo'), filename='FileToSave.png')
+                # uploaded_file = request.data.get('photo')
                 template_id = request.data.get('template')
                 template_file = FileTemplate.objects.get(id=template_id)
                 photo = UploadedPhoto(photo=uploaded_file, template=template_file)
