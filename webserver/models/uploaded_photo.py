@@ -13,3 +13,6 @@ class UploadedPhoto(models.Model):
 
     def get_path(self):
         return self.photo.path
+
+    def get_file_format(self):
+        return self.photo.name.split('.')[-1]
