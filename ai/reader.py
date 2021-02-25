@@ -12,7 +12,7 @@ class Reader:
     def read_template(self, template_file: File) -> np.array:
         # next line for local storage
         if os.environ.get('ICR_LOCAL_RUN'):
-            template = self.__read_cv2_file_from_filename(template_file.name)
+            template = cv2.imread(template_file.name)
         # next line for S3 bucket
         else:
             template = self.__read_cv2_file_from_inmemory_file(template_file)
@@ -22,14 +22,15 @@ class Reader:
         return cv2.imread(filename)
 
     def __read_cv2_file_from_filename(self, filename: str) -> np.array:
-        with open(filename, encoding='utf8') as file:
-            img_str = file.read()
-        self.__from_str_to_numpy_arr(img_str)
+        fd = open(filename, encoding='utf8')
+        img_str = fd.read()
+        fd.close()
+        return self.__from_str_to_numpy_arr(img_str)
 
-    def __read_cv2_file_from_inmemory_file(self, file: Type[File]) -> np.array:
+    def __read_cv2_file_from_inmemory_file(self, file) -> np.array:
         img_str = file.read()
         file.close()
-        self.__from_str_to_numpy_arr(img_str)
+        return self.__from_str_to_numpy_arr(img_str)
 
     def __from_str_to_numpy_arr(self, _from: str, array_dtype_to=np.uint8,
                                 cv2_decode_flag=cv2.IMREAD_COLOR) -> np.array:
