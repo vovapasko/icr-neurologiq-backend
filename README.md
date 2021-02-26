@@ -17,3 +17,11 @@ If you need to prepopulate data, use this command:
 [OCR a document, form, or invoice with Tesseract, OpenCV, and Python](https://www.pyimagesearch.com/2020/09/07/ocr-a-document-form-or-invoice-with-tesseract-opencv-and-python/)
 
 [OCR: Handwriting recognition with OpenCV, Keras, and TensorFlow](https://www.pyimagesearch.com/2020/08/24/ocr-handwriting-recognition-with-opencv-keras-and-tensorflow/)
+
+
+
+For local run set next env
+```
+ICR_LOCAL_RUN="True"
+ICR_DEBUG="True"
+```

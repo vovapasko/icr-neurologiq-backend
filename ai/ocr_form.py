@@ -4,10 +4,10 @@ import imutils
 import cv2
 import os
 from .recognition import recognize
-from .file_conventer import file_converter
 from .data_handler import to_pure_dict
 from .file_saver import file_saver, rules
 from .config import OCR_LOCATIONS, file_formats_to_save_names, ROOT_DIR, ORC_second_page
+from .reader import reader
 
 
 def run(
@@ -20,11 +20,8 @@ def run(
         **kwargs
 ):
     print("[INFO] loading images...")
-    # image = file_converter.read_cv2_file_from_filename(par_image_file)
-    # template = file_converter.read_cv2_file_from_filename(par_template_file)
-    image = file_converter.get_cv2_file_from_buffer(par_image_file)
-    # template = file_converter.read_cv2_file_from_filename(par_template_file)
-    template = file_converter.get_cv2_file_from_buffer(par_template_file)
+    image = reader.read_image(par_image_file)
+    template = reader.read_template(par_template_file)
 
     # ------------------ align
     print("[INFO] aligning images...")
