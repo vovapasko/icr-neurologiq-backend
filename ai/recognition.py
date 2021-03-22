@@ -4,9 +4,10 @@ from enum import Enum
 from .helpers import ignore_line
 import cv2
 import pytesseract
+import numpy as np
 
 
-def recognize(locations, aligned_img) -> dict:
+def recognize(locations: list, aligned_img: np.array) -> dict:
     parsingResults = []
     for loc in locations:
         (x, y, w, h) = loc.bbox
