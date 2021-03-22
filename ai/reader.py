@@ -11,8 +11,8 @@ from pdf2image import convert_from_bytes
 class Reader:
 
     def read_image(self, image_file: Union[str, File]):
-        if os.environ.get('ICR_LOCAL_RUN'):
-            return self.__read_cv2_file_from_local_file(image_file)
+        # if os.environ.get('ICR_LOCAL_RUN'):
+        #     return self.__read_cv2_file_from_local_file(image_file)
         if self.__get_file_format(image_file) == 'pdf':
             return self.__read_pdf_file(image_file.file)
         return self.__read_cv2_file_from_inmemory_file(image_file)
@@ -20,8 +20,8 @@ class Reader:
     def read_template(self, template_file: File) -> np.array:
         # next line for local storage
         if os.environ.get('ICR_LOCAL_RUN'):
-            template = cv2.imread(template_file)
-            # template = cv2.imread(template_file.name)
+            # template = cv2.imread(template_file)
+            template = cv2.imread(template_file.name)
         # next line for S3 bucket
         else:
             template = self.__read_cv2_file_from_inmemory_file(template_file)
