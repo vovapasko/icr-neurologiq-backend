@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*pv2^l@qxhmd#_uau@#w%@%rref8fv$(o01$e+(zz#yk6_$ei0'
+SECRET_KEY = os.environ.get('ICR_DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('ICR_DEBUG')
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'icr-neurologiq-backend.herokuapp.com']
 
@@ -77,20 +77,24 @@ WSGI_APPLICATION = 'icr_server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get("ICR_DB_NAME") if os.environ.get("ICR_DB_NAME") else "icr",
-        'USER': os.environ.get("ICR_DB_USER") if os.environ.get("ICR_DB_USER") else "postgres",
-        'PASSWORD': os.environ.get("ICR_DB_PASSWORD") if os.environ.get("ICR_DB_PASSWORD") else 'postgres',
-        'HOST': os.environ.get("ICR_DB_HOST") if os.environ.get("ICR_DB_HOST") else 'localhost',
-        'PORT': os.environ.get("ICR_DB_PORT") if os.environ.get("ICR_DB_PORT") else '5432'
+if os.environ.get('ICR_LOCAL_RUN'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get("ICR_DB_NAME") if os.environ.get("ICR_DB_NAME") else "icr",
+            'USER': os.environ.get("ICR_DB_USER") if os.environ.get("ICR_DB_USER") else "postgres",
+            'PASSWORD': os.environ.get("ICR_DB_PASSWORD") if os.environ.get("ICR_DB_PASSWORD") else 'postgres',
+            'HOST': os.environ.get("ICR_DB_HOST") if os.environ.get("ICR_DB_HOST") else 'localhost',
+            'PORT': os.environ.get("ICR_DB_PORT") if os.environ.get("ICR_DB_PORT") else '5432'
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -141,20 +145,21 @@ FILE_ROOT = os.path.join(BASE_DIR)
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:5000',
-    'https://icr-neurologiq.herokuapp.com/'
+    'https://icr-neurologiq.herokuapp.com'
 ]
 CORS_ORIGIN_REGEX_WHITELIST = [
     'http://localhost:5000',
-    'https://icr-neurologiq.herokuapp.com/'
+    'https://icr-neurologiq.herokuapp.com'
 ]
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_ICR_STORAGE_BUCKET_NAME')
-AWS_S3_REGION_NAME = 'eu-central-1'
-AWS_S3_SIGNATURE_VERSION = 's3v4'
+if os.environ.get('ICR_LOCAL_RUN') is None:
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_ICR_STORAGE_BUCKET_NAME')
+    AWS_S3_REGION_NAME = 'eu-central-1'
+    AWS_S3_SIGNATURE_VERSION = 's3v4'
 
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = None
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
