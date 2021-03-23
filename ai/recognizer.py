@@ -4,6 +4,7 @@ import pytesseract
 from PIL import Image
 import numpy
 from google.cloud import vision
+from tempfile import TemporaryDirectory
 
 
 class AbstractRecognizer(ABC):
@@ -42,12 +43,19 @@ class GoogleVisionRecognizer(AbstractRecognizer):
                 '{}\nFor more info on error messages, check: '
                 'https://cloud.google.com/apis/design/errors'.format(
                     response.error.message))
-        result = response.text_annotations[0].description
+        try:
+            result = response.text_annotations[0].description
+        except IndexError :
+            result = ''
         return result
 
     def _get_image_from_arr(self, arr: numpy.array) -> vision.Image:
         tmp_img = Image.fromarray(arr)
-        tmp_bytes = tmp_img.tobytes()
+        with TemporaryDirectory() as td:
+            filename = f"{td}/file.png"
+            tmp_img.save(filename)
+            with open(filename, 'rb') as tmp_file:
+                tmp_bytes = tmp_file.read()
         image = vision.Image()
         image.content = tmp_bytes
         return image
