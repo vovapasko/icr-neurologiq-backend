@@ -45,7 +45,7 @@ class GoogleVisionRecognizer(AbstractRecognizer):
                     response.error.message))
         try:
             result = response.text_annotations[0].description
-        except IndexError :
+        except IndexError:
             result = ''
         return result
 
