@@ -1,20 +1,23 @@
 # ------------------ recognition
-import platform
+
 from enum import Enum
 from .helpers import ignore_line
 import cv2
-import pytesseract
+import numpy as np
+
+from ai.recognizer import PyTesseractRecognizer, GoogleVisionRecognizer
+
+recognizer = GoogleVisionRecognizer()
 
 
-def recognize(locations, aligned_img) -> dict:
+def recognize(locations: list, aligned_img: np.array) -> dict:
     parsingResults = []
     for loc in locations:
         (x, y, w, h) = loc.bbox
         roi = aligned_img[y:y + h, x:x + w]
 
         rgb = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
-        set_pytesseract()
-        text = pytesseract.image_to_string(rgb)
+        text = recognizer.recognize(rgb)
         parse_read_text(text, parsingResults, loc)
     results = {}
 
@@ -30,16 +33,6 @@ def recognize(locations, aligned_img) -> dict:
             results[loc["id"]] = (text, loc)
             print("text", text)
     return results
-
-
-def set_pytesseract():
-    if platform.system() == 'Windows':
-        pytesseract.pytesseract.tesseract_cmd = r"full path to the exe file"
-        pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-    else:
-        import os
-        if not os.environ.get('ICR_LOCAL_RUN'):
-            pytesseract.pytesseract.tesseract_cmd = "/app/.apt/usr/bin/tesseract"
 
 
 def parse_read_text(text: str, parsingResults: list, loc: Enum):

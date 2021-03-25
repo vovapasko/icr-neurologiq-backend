@@ -3,7 +3,14 @@ import base64
 import six
 
 
-def from_base64_to_content_file(base64_str: str, filename: str):
+def from_base64_to_content_file(base64_str: str, filename: str) -> ContentFile:
+    '''
+    Converts base64 string to Django ContentFile named after given filename. Note that you should give filename
+    without extension. Extension will be extracted from base64_str
+    :param base64_str: string to convert
+    :param filename: the name of the created file
+    :return: Django ContentFile file
+    '''
     data = base64_str
     # Check if this is a base64 string
     if isinstance(data, six.string_types):

@@ -1,13 +1,14 @@
 # python ocr_form.py --image scans/full_antrag-1.png --template template/antrag-1.png
-from .align_image import align_images
 import imutils
 import cv2
 import os
-from .recognition import recognize
-from .data_handler import to_pure_dict
-from .file_saver import file_saver, rules
-from .config import OCR_LOCATIONS, file_formats_to_save_names, ROOT_DIR, ORC_second_page
-from .reader import reader
+
+from ai.align_image import align_images
+from ai.recognition import recognize
+from ai.data_handler import to_pure_dict
+from ai.file_saver import file_saver, rules
+from ai.config import OCR_LOCATIONS, file_formats_to_save_names, ROOT_DIR, ORC_second_page
+from ai.reader import reader
 
 
 def run(
@@ -48,7 +49,7 @@ def run(
 
 
 if __name__ == '__main__':
-    template_name = os.path.join(ROOT_DIR, 'template', 'antrag-1.png')
+    template_name = os.path.join(ROOT_DIR, 'template', 'Antrag_1.jpg')
     image_name = os.path.join(ROOT_DIR, 'scans', 'photo11.jpg')
     location = OCR_LOCATIONS
 

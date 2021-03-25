@@ -1,16 +1,10 @@
-from django.shortcuts import render
 from rest_framework import status
-
 from ..models import UploadedPhoto, FileTemplate
-from rest_framework.response import Response
 from ai.ocr_form import run
-from ai.config import OCR_LOCATIONS, ORC_second_page
 from .base_view import BaseView
 from rest_framework.generics import ListCreateAPIView
 from ..serializers import UploadFileSerializer, FileTemplateSerializer
-
-import base64
-
+import os
 from webserver.helpers import from_base64_to_content_file
 
 
