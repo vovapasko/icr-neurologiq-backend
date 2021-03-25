@@ -32,15 +32,15 @@ OCR_LOCATIONS = [
     OCRLocation("kontoinhaber_email", (839, 910, 671, 56), ["email"]),
 
     # beitrittserklaerung
-    OCRLocation("beitrittserklaerung_weiteren", (540, 1138, 270, 50), []), #alternativ 78x46
-    OCRLocation("beitrittserklaerung_geschaeftsanteil", (1070, 1138, 384, 50), []), #alternativ 68x51
+    OCRLocation("beitrittserklaerung_weiteren", (540, 1138, 270, 50), ["weiter"]), #alternativ 78x46
+    OCRLocation("beitrittserklaerung_geschaeftsanteil", (1070, 1138, 384, 50), ["geschaeftsanteilen"]), #alternativ 68x51 nicht lesbar
 
     # auftrag
     OCRLocation("auftrag_iban", (209, 1347, 455, 49), ["iban"]),
 
     # SEPA-Lastschrift/Umbuchung
     # OCRLocation("sepa_betrag_girokonto", (128, 1571, 234, 47), ["betrag"]),
-    OCRLocation("sepa_betrag_psd_bank_konto", (128, 1641, 234, 47), ["betrag"]),
+    OCRLocation("sepa_betrag_psd_bank_konto", (128, 1641, 234, 47), ["betrag"]), #nicht lesbar
     OCRLocation("sepa_iban", (760, 1639, 513, 50), ["iban"]),
     # OCRLocation("sepa_unterschrift", (128, 1705, 474, 46), ["unterschrift", "des", "kontoinhabers", "sofern", "nicht",
     #                                                         "auftaggeber"]),
