@@ -32,8 +32,8 @@ OCR_LOCATIONS = [
     OCRLocation("kontoinhaber_email", (839, 910, 671, 56), ["email"]),
 
     # beitrittserklaerung
-    OCRLocation("beitrittserklaerung_weiteren", (540, 1138, 270, 50), ["weiter"]), #alternativ 78x46
-    OCRLocation("beitrittserklaerung_geschaeftsanteil", (1070, 1138, 384, 50), ["geschaeftsanteilen"]), #alternativ 68x51 nicht lesbar
+    OCRLocation("beitrittserklaerung_weiteren", (523, 1118, 185, 69), []), #alternativ 78x46
+    OCRLocation("beitrittserklaerung_geschaeftsanteil", (1057, 1124, 185, 75), []), #alternativ 68x51 nicht lesbar
 
     # auftrag
     OCRLocation("auftrag_iban", (209, 1347, 455, 49), ["iban"]),
@@ -57,6 +57,7 @@ OCR_LOCATIONS = [
     #                                                                                                    "allen",
     #                                                                                  "gesetzlichen",
     #                                                                                  "vertretern"]),
+    OCRLocation("psd_formularnummer", (213, 2216, 97, 51), [])
 ]
 
 ORC_second_page = [
