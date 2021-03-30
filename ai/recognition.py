@@ -15,7 +15,6 @@ def recognize(locations: list, aligned_img: np.array) -> dict:
     for loc in locations:
         (x, y, w, h) = loc.bbox
         roi = aligned_img[y:y + h, x:x + w]
-
         rgb = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
         text = recognizer.recognize(rgb)
         parse_read_text(text, parsingResults, loc)
