@@ -15,9 +15,6 @@ file_formats_to_save_names = {
 OCRLocation = namedtuple("Location", ["id", "bbox", "filter_keywords"])
 
 OCR_LOCATIONS = [
-    # up left
-    # OCRLocation("steuernummer", (118, 270, 440, 53), ["steuernummer", "bzw", "umsatzsteuer", "identifikationsnummer"]),
-    # OCRLocation("rechnungsnummer", (118, 351, 440, 53), ["rechnungsnummer", "gemaess", "14", "abs", "4", "nr", "ustg"]),
 
     # up right
     OCRLocation("psd_kontonummer", (1075, 271, 441, 53), ["psd", "kontonummer"]),
@@ -32,31 +29,14 @@ OCR_LOCATIONS = [
     OCRLocation("kontoinhaber_email", (839, 910, 671, 56), ["email"]),
 
     # beitrittserklaerung
-    OCRLocation("beitrittserklaerung_weiteren", (540, 1138, 270, 50), ["weiter"]), #alternativ 78x46
-    OCRLocation("beitrittserklaerung_geschaeftsanteil", (1070, 1138, 384, 50), ["geschaeftsanteilen"]), #alternativ 68x51 nicht lesbar
+    OCRLocation("beitrittserklaerung_weiteren", (523, 1118, 185, 69), []),  # alternativ 78x46
+    OCRLocation("beitrittserklaerung_geschaeftsanteil", (1057, 1124, 185, 75), []),  # alternativ 68x51 nicht lesbar
 
-    # auftrag
     OCRLocation("auftrag_iban", (209, 1347, 455, 49), ["iban"]),
-
-    # SEPA-Lastschrift/Umbuchung
-    # OCRLocation("sepa_betrag_girokonto", (128, 1571, 234, 47), ["betrag"]),
-    OCRLocation("sepa_betrag_psd_bank_konto", (128, 1641, 234, 47), ["betrag"]), #nicht lesbar
+    OCRLocation("sepa_betrag_psd_bank_konto", (128, 1641, 234, 47), ["betrag"]),  # nicht lesbar
     OCRLocation("sepa_iban", (760, 1639, 513, 50), ["iban"]),
-    # OCRLocation("sepa_unterschrift", (128, 1705, 474, 46), ["unterschrift", "des", "kontoinhabers", "sofern", "nicht",
-    #                                                         "auftaggeber"]),
-    # OCRLocation("sepa_name_vorname", (740, 1708, 596, 44), ["name", "vorname", "weiterer", "auftraggeber"]),
 
-    # Ort, Datum, Unterschriften
-    # OCRLocation("ort_datum", (136, 1802, 432, 54), ["ort", "datum"]),
-    # OCRLocation("unterschrift_beitretender_mitlied", (615, 1800, 919, 57), ["unterschrift", "beitretender", "mitlied"]),
-
-    # Mitglied minderjaerig
-    # OCRLocation("mitglied_ort_datum", (137, 1919, 680, 55), ["ort", "datum"]),
-    # OCRLocation("mitglied_unterschriften_bei_Minderjaerigen", (837, 1924, 694, 55), ["unterschriften", "bei",
-    #                                                                                  "Minderjaerigen", "von"
-    #                                                                                                    "allen",
-    #                                                                                  "gesetzlichen",
-    #                                                                                  "vertretern"]),
+    OCRLocation("psd_formularnummer", (193, 2212, 125, 61), [])
 ]
 
 ORC_second_page = [
