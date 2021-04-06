@@ -1,5 +1,5 @@
 # ------------------ recognition
-
+import os
 from enum import Enum
 from .helpers import ignore_line
 import cv2
@@ -17,7 +17,10 @@ def recognize(locations: list, aligned_img: np.array) -> dict:
         roi = aligned_img[y:y + h, x:x + w]
 
         rgb = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
-        text = recognizer.recognize(rgb)
+        if os.environ.get('GOOGLE_ICR_SEE_IMAGE'):
+            text = recognizer.recognize(rgb, loc.id)
+        else:
+            text = recognizer.recognize(rgb)
         parse_read_text(text, parsingResults, loc)
     results = {}
 
