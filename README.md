@@ -25,3 +25,13 @@ For local run set next env
 ICR_LOCAL_RUN="True"
 ICR_DEBUG="True"
 ```
+
+To use Google ICR you need to provide an absolute path to your credentials file. Set it to the next variable
+```
+GOOGLE_APPLICATION_CREDENTIALS=your_path_to_file.json
+```
+
+Sometimes you may need to see what images are sent to Google ICR. Set next env to do it
+```
+GOOGLE_ICR_SEE_IMAGE="True"
+```
