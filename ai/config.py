@@ -49,11 +49,11 @@ OCR_LOCATIONS = [
     OCRLocation("sepa_name_vorname", (740, 1708, 596, 44), ["name", "vorname", "weiterer", "auftraggeber"]),
 
     # Ort, Datum, Unterschriften
-    OCRLocation("ort_datum", (136, 1802, 432, 54), ["ort", "datum"]),
+    OCRLocation("ort_datum", (136, 1802, 432, 63), ["ort", "datum"]),
     OCRLocation("unterschrift_beitretender_mitglied", (615, 1800, 919, 57), ["unterschrift", "beitretender", "mitlied"]),
 
     # Mitglied minderjaerig
-    OCRLocation("mitglied_ort_datum", (137, 1919, 680, 55), ["ort", "datum"]),
+    OCRLocation("mitglied_ort_datum", (137, 1919, 680, 60), ["ort", "datum"]),
     OCRLocation("mitglied_unterschriften_bei_minderjaerigen", (865, 1924, 694, 55), ["unterschriften", "bei",
                                                                                      "Minderjaerigen", "von",
                                                                                                        "allen",
