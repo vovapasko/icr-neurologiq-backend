@@ -41,8 +41,8 @@ OCR_LOCATIONS = [
     OCRLocation("auftrag_iban", (209, 1347, 455, 49), ["iban"]),
 
     # SEPA-Lastschrift/Umbuchung
-    OCRLocation("sepa_betrag_girokonto", (128, 1571, 234, 47), ["betrag"]),
-    OCRLocation("sepa_betrag_psd_bank_konto", (128, 1641, 234, 47), ["betrag"]), #nicht lesbar
+    OCRLocation("sepa_betrag_girokonto", (128, 1571, 234, 50), ["betrag"]),
+    OCRLocation("sepa_betrag_psd_bank_konto", (128, 1641, 234, 50), ["betrag"]), #nicht lesbar
     OCRLocation("sepa_iban", (760, 1639, 513, 50), ["iban"]),
     OCRLocation("sepa_unterschrift", (128, 1705, 474, 46), ["unterschrift", "des", "kontoinhabers", "sofern", "nicht",
                                                             "auftaggeber"]),
