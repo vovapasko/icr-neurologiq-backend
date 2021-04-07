@@ -17,21 +17,21 @@ OCRLocation = namedtuple("Location", ["id", "bbox", "filter_keywords"])
 OCR_LOCATIONS = [
     # up left
     OCRLocation("steuernummer", (118, 270, 440, 53), ["steuernummer", "bzw", "umsatzsteuer", "identifikationsnummer"]),
-    OCRLocation("rechnungsnummer", (118, 351, 440, 53), ["rechnungsnummer", "gemaess", "14", "abs", "4", "nr", "ustg"]),
+    OCRLocation("rechnungsnummer", (120, 351, 440, 53), ["rechnungsnummer", "gemaess", "14", "abs", "4", "nr", "ustg"]),
 
     # up right
-    OCRLocation("psd_kontonummer", (1075, 271, 441, 53), ["psd", "kontonummer"]),
+    OCRLocation("psd_kontonummer", (1078, 271, 441, 53), ["psd", "kontonummer"]),
 
     # kontoinhaber block
-    OCRLocation("kontoinhaber_geschlecht_frau", (1117, 510, 40, 30), []),
-    OCRLocation("kontoinhaber_geschlecht_mann", (1229, 510, 40, 30), []),
-    OCRLocation("kontoinhaber_vorname_name", (839, 552, 669, 49), ["vorname", "name"]),
+    OCRLocation("kontoinhaber_geschlecht_frau", (1112, 500, 57, 54), ["frau"]),
+    OCRLocation("kontoinhaber_geschlecht_mann", (1217, 500, 57, 54), ["herr"]),
+    OCRLocation("kontoinhaber_vorname_name", (842, 552, 669, 49), ["vorname", "name"]),
     OCRLocation("kontoinhaber_strasse", (839, 619, 669, 49), ["strasse", "hausnummer"]),
     OCRLocation("kontoinhaber_plz_ort", (839, 690, 669, 49), ["plz", "ort"]),
     OCRLocation("kontoinhaber_telefon_privat", (839, 763, 319, 49), ["telefon", "privat"]),
     OCRLocation("kontoinhaber_telefon_geschaeftlich", (1182, 763, 319, 49), ["telefon", "geschaeftlich"]),
     OCRLocation("kontoinhaber_geburtsdatum", (839, 834, 671, 56), ["geburtsdatum"]),
-    OCRLocation("kontoinhaber_email", (839, 910, 671, 56), ["email"]),
+    OCRLocation("kontoinhaber_email", (841, 905, 670, 60), ["email"]),
 
     # beitrittserklaerung
     OCRLocation("beitrittserklaerung_weiteren", (497, 1126, 329, 65), []), #alternativ 78x46
@@ -41,21 +41,21 @@ OCR_LOCATIONS = [
     OCRLocation("auftrag_iban", (209, 1347, 455, 49), ["iban"]),
 
     # SEPA-Lastschrift/Umbuchung
-    OCRLocation("sepa_betrag_girokonto", (128, 1571, 234, 47), ["betrag"]),
-    OCRLocation("sepa_betrag_psd_bank_konto", (128, 1641, 234, 47), ["betrag"]), #nicht lesbar
+    OCRLocation("sepa_betrag_girokonto", (128, 1569, 234, 56), ["betrag"]),
+    OCRLocation("sepa_betrag_psd_bank_konto", (128, 1639, 234, 56), ["betrag"]), #nicht lesbar
     OCRLocation("sepa_iban", (760, 1639, 513, 50), ["iban"]),
     OCRLocation("sepa_unterschrift", (128, 1705, 474, 46), ["unterschrift", "des", "kontoinhabers", "sofern", "nicht",
                                                             "auftaggeber"]),
     OCRLocation("sepa_name_vorname", (740, 1708, 596, 44), ["name", "vorname", "weiterer", "auftraggeber"]),
 
     # Ort, Datum, Unterschriften
-    OCRLocation("ort_datum", (136, 1802, 432, 54), ["ort", "datum"]),
-    OCRLocation("unterschrift_beitretender_mitglied", (615, 1800, 919, 57), ["unterschrift", "beitretender", "mitlied"]),
+    OCRLocation("ort_datum", (136, 1802, 432, 63), ["ort", "datum"]),
+    OCRLocation("unterschrift_beitretender_mitglied", (645, 1800, 889, 57), ["unterschrift", "beitretender", "mitlied"]),
 
     # Mitglied minderjaerig
-    OCRLocation("mitglied_ort_datum", (137, 1919, 680, 55), ["ort", "datum"]),
-    OCRLocation("mitglied_unterschriften_bei_Minderjaerigen", (837, 1924, 694, 55), ["unterschriften", "bei",
-                                                                                     "Minderjaerigen", "von"
+    OCRLocation("mitglied_ort_datum", (137, 1919, 680, 60), ["ort", "datum"]),
+    OCRLocation("mitglied_unterschriften_bei_minderjaerigen", (865, 1924, 694, 55), ["unterschriften", "bei",
+                                                                                     "Minderjaerigen", "von",
                                                                                                        "allen",
                                                                                      "gesetzlichen",
                                                                                      "vertretern"]),
