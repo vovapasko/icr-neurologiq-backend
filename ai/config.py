@@ -17,10 +17,10 @@ OCRLocation = namedtuple("Location", ["id", "bbox", "filter_keywords"])
 OCR_LOCATIONS = [
     # up left
     OCRLocation("steuernummer", (118, 270, 440, 53), ["steuernummer", "bzw", "umsatzsteuer", "identifikationsnummer"]),
-    OCRLocation("rechnungsnummer", (118, 351, 440, 53), ["rechnungsnummer", "gemaess", "14", "abs", "4", "nr", "ustg"]),
+    OCRLocation("rechnungsnummer", (120, 351, 440, 53), ["rechnungsnummer", "gemaess", "14", "abs", "4", "nr", "ustg"]),
 
     # up right
-    OCRLocation("psd_kontonummer", (1075, 271, 441, 53), ["psd", "kontonummer"]),
+    OCRLocation("psd_kontonummer", (1078, 271, 441, 53), ["psd", "kontonummer"]),
 
     # kontoinhaber block
     OCRLocation("kontoinhaber_geschlecht_frau", (1112, 500, 57, 54), ["frau"]),
