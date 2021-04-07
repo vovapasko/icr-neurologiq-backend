@@ -23,15 +23,15 @@ OCR_LOCATIONS = [
     OCRLocation("psd_kontonummer", (1075, 271, 441, 53), ["psd", "kontonummer"]),
 
     # kontoinhaber block
-    OCRLocation("kontoinhaber_geschlecht_frau", (1117, 510, 40, 30), []),
-    OCRLocation("kontoinhaber_geschlecht_mann", (1229, 510, 40, 30), []),
+    OCRLocation("kontoinhaber_geschlecht_frau", (1112, 500, 57, 54), ["frau"]),
+    OCRLocation("kontoinhaber_geschlecht_mann", (1217, 500, 57, 54), ["herr"]),
     OCRLocation("kontoinhaber_vorname_name", (842, 552, 669, 49), ["vorname", "name"]),
     OCRLocation("kontoinhaber_strasse", (839, 619, 669, 49), ["strasse", "hausnummer"]),
     OCRLocation("kontoinhaber_plz_ort", (839, 690, 669, 49), ["plz", "ort"]),
     OCRLocation("kontoinhaber_telefon_privat", (839, 763, 319, 49), ["telefon", "privat"]),
     OCRLocation("kontoinhaber_telefon_geschaeftlich", (1182, 763, 319, 49), ["telefon", "geschaeftlich"]),
     OCRLocation("kontoinhaber_geburtsdatum", (839, 834, 671, 56), ["geburtsdatum"]),
-    OCRLocation("kontoinhaber_email", (840, 905, 670, 60), ["email"]),
+    OCRLocation("kontoinhaber_email", (841, 905, 670, 60), ["email"]),
 
     # beitrittserklaerung
     OCRLocation("beitrittserklaerung_weiteren", (497, 1126, 329, 65), []), #alternativ 78x46
@@ -50,7 +50,7 @@ OCR_LOCATIONS = [
 
     # Ort, Datum, Unterschriften
     OCRLocation("ort_datum", (136, 1802, 432, 63), ["ort", "datum"]),
-    OCRLocation("unterschrift_beitretender_mitglied", (615, 1800, 919, 57), ["unterschrift", "beitretender", "mitlied"]),
+    OCRLocation("unterschrift_beitretender_mitglied", (645, 1800, 889, 57), ["unterschrift", "beitretender", "mitlied"]),
 
     # Mitglied minderjaerig
     OCRLocation("mitglied_ort_datum", (137, 1919, 680, 60), ["ort", "datum"]),
