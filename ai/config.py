@@ -54,8 +54,8 @@ OCR_LOCATIONS = [
 
     # Mitglied minderjaerig
     OCRLocation("mitglied_ort_datum", (137, 1919, 680, 55), ["ort", "datum"]),
-    OCRLocation("mitglied_unterschriften_bei_Minderjaerigen", (837, 1924, 694, 55), ["unterschriften", "bei",
-                                                                                     "Minderjaerigen", "von"
+    OCRLocation("mitglied_unterschriften_bei_minderjaerigen", (865, 1924, 694, 55), ["unterschriften", "bei",
+                                                                                     "Minderjaerigen", "von",
                                                                                                        "allen",
                                                                                      "gesetzlichen",
                                                                                      "vertretern"]),
