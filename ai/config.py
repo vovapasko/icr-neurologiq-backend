@@ -30,7 +30,7 @@ OCR_LOCATIONS = [
     OCRLocation("kontoinhaber_plz_ort", (839, 690, 669, 49), ["plz", "ort"]),
     OCRLocation("kontoinhaber_telefon_privat", (839, 763, 319, 49), ["telefon", "privat"]),
     OCRLocation("kontoinhaber_telefon_geschaeftlich", (1182, 763, 319, 49), ["telefon", "geschaeftlich"]),
-    OCRLocation("kontoinhaber_geburtsdatum", (839, 834, 671, 56), ["geburtsdatum"]),
+    OCRLocation("kontoinhaber_geburtsdatum", (842, 834, 671, 56), ["geburtsdatum"]),
     OCRLocation("kontoinhaber_email", (841, 905, 670, 60), ["email"]),
 
     # beitrittserklaerung
