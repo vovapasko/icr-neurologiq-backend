@@ -61,7 +61,7 @@ class GoogleVisionRecognizer(AbstractRecognizer):
         # for debugging purposes sometimes we need to see what image is sent to google.
         # that's why we need second if block
         if debug_name:
-            tmp_img.save(f'{debug_name}.png')
+            tmp_img.save(f'debug_images/{debug_name}.png')
         # for now only correct way to read bytes from tmp_img is to save it in temporary
         # directory and read bytes from already saved file
         with TemporaryDirectory() as td:
