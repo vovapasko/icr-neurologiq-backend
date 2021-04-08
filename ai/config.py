@@ -27,7 +27,7 @@ OCR_LOCATIONS = [
     OCRLocation("kontoinhaber_geschlecht_mann", (1217, 500, 57, 54), ["herr"]),
     OCRLocation("kontoinhaber_vorname_name", (842, 552, 669, 49), ["vorname", "name"]),
     OCRLocation("kontoinhaber_strasse", (839, 619, 669, 49), ["strasse", "hausnummer"]),
-    OCRLocation("kontoinhaber_plz_ort", (839, 690, 669, 49), ["plz", "ort"]),
+    OCRLocation("kontoinhaber_plz_ort", (841, 690, 669, 49), ["plz", "ort"]),
     OCRLocation("kontoinhaber_telefon_privat", (839, 763, 319, 49), ["telefon", "privat"]),
     OCRLocation("kontoinhaber_telefon_geschaeftlich", (1182, 763, 319, 49), ["telefon", "geschaeftlich"]),
     OCRLocation("kontoinhaber_geburtsdatum", (842, 834, 671, 56), ["geburtsdatum"]),
