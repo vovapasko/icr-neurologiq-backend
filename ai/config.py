@@ -38,7 +38,7 @@ OCR_LOCATIONS = [
     OCRLocation("beitrittserklaerung_geschaeftsanteil", (1057, 1124, 185, 75), []), #alternativ 68x51 nicht lesbar
 
     # auftrag
-    OCRLocation("auftrag_iban", (209, 1347, 455, 49), ["iban"]),
+    OCRLocation("auftrag_iban", (210, 1340, 679, 72), ["iban", "ban", "gutzuschreiben"]), #(209, 1347, 455, 49)
 
     # SEPA-Lastschrift/Umbuchung
     OCRLocation("sepa_betrag_girokonto", (128, 1569, 234, 56), ["betrag"]),
