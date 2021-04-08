@@ -27,10 +27,10 @@ OCR_LOCATIONS = [
     OCRLocation("kontoinhaber_geschlecht_mann", (1217, 500, 57, 54), ["herr"]),
     OCRLocation("kontoinhaber_vorname_name", (842, 552, 669, 49), ["vorname", "name"]),
     OCRLocation("kontoinhaber_strasse", (839, 619, 669, 49), ["strasse", "hausnummer"]),
-    OCRLocation("kontoinhaber_plz_ort", (839, 690, 669, 49), ["plz", "ort"]),
+    OCRLocation("kontoinhaber_plz_ort", (841, 690, 669, 49), ["plz", "ort"]),
     OCRLocation("kontoinhaber_telefon_privat", (839, 763, 319, 49), ["telefon", "privat"]),
     OCRLocation("kontoinhaber_telefon_geschaeftlich", (1182, 763, 319, 49), ["telefon", "geschaeftlich"]),
-    OCRLocation("kontoinhaber_geburtsdatum", (839, 834, 671, 56), ["geburtsdatum"]),
+    OCRLocation("kontoinhaber_geburtsdatum", (842, 834, 671, 56), ["geburtsdatum"]),
     OCRLocation("kontoinhaber_email", (841, 905, 670, 60), ["email"]),
 
     # beitrittserklaerung
@@ -38,7 +38,7 @@ OCR_LOCATIONS = [
     OCRLocation("beitrittserklaerung_geschaeftsanteil", (1057, 1124, 185, 75), []), #alternativ 68x51 nicht lesbar
 
     # auftrag
-    OCRLocation("auftrag_iban", (209, 1347, 455, 49), ["iban"]),
+    OCRLocation("auftrag_iban", (210, 1340, 679, 72), ["iban", "ban", "gutzuschreiben"]), #(209, 1347, 455, 49)
 
     # SEPA-Lastschrift/Umbuchung
     OCRLocation("sepa_betrag_girokonto", (128, 1569, 234, 56), ["betrag"]),
